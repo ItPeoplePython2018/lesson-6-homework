@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-{% load static %}
   <div>
     <div class="main">
       <div class="main__book">
         <div class="book-detail">
           <div class="book-detail__cover book-detail-cover">
-            <img class="book-detail-cover__img" src="{% static "" %}/{{ book.cover }}" alt="Название книги" >
+            <img class="book-detail-cover__img" src="{% static book.cover %}" alt="Название книги" >
           </div>
           <div class="book-detail__content">
             <div class="book-detail-property">Название: <i>{{ book.name }}</i></div>

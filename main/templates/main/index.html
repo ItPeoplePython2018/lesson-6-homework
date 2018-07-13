@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
       <div>
         <div class="main">
           <div class="main__book">
-
-            {% load static %}
             {% for book in books %}
             <div class="book-preview">
-                <img class="book-preview__img" alt="Название книги" src="{% static "" %}/{{ book.cover }}">
+                <img class="book-preview__img" alt="Название книги" src="{% static book.cover %}">
                 <div class="book-preview__name">{{ book.name }}</div>
                 <div class="spring"></div>
                 <div class="book-preview__author">{{ book.author }}</div>
-                <a href="/catalog/{{ book.id }}">Подробнее</a>
+                <a href="{% url 'market-catalog-detail' book.id %}">Подробнее</a>
                 <div class="spring"></div>
                 <div class="book-preview-order">
                     {% if book.is_available %}
